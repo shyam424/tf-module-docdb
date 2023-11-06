@@ -53,4 +53,3 @@ resource "aws_docdb_cluster" "main" {
 }
 
 
-a
