@@ -54,3 +54,10 @@ resource "aws_docdb_cluster" "main" {
 }
 
 
+resource "aws_docdb_cluster_instance" "main" {
+  count              = var.instance_count
+  identifier         = "${local.name_prefix}-cluster-instance-${count.index+1}"
+  cluster_identifier = aws_docdb_cluster.default.id
+  instance_class     = var.instance_class
+}
+
